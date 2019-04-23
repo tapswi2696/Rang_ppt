@@ -1,5 +1,4 @@
 
-
    /*****************************************************************************/
   /**                  RESET EVERYHING                                      ****/
  /*****************************************************************************/
@@ -20,14 +19,27 @@
  title1;
  footnote1;
  
- 
    /*****************************************************************************/
-  /**                  IMPORT AND READ LOCAL FILE                           ****/
+  /**                  IMPORT AND READ GITHUB                               ****/
  /*****************************************************************************/
 
-filename raw_ct '/home/shahparth260/RAW_CONT.xls';
+/* Fetch the file from the web site */
 
-proc import datafile=raw_ct  dbms=xls replace out=raw_ct_db;
+filename probly temp;
+proc http
+ url="https://raw.githubusercontent.com/tapswi2696/Rang_ppt/master/RAW_CSV.csv"
+ method="GET"
+ out=probly;
+run;
+
+options validvarname=any;
+ 
+/* import to a SAS data set */
+
+proc import
+  file=probly
+  out=work.raw_ct_db replace
+  dbms=csv;
 run;
 
 proc sort data=raw_ct_db;
