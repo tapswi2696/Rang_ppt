@@ -1,4 +1,3 @@
-
    /*****************************************************************************/
   /**                  RESET EVERYHING                                      ****/
  /*****************************************************************************/
@@ -12,7 +11,7 @@
  run;
  quit; 
 
- proc datasets lib=work memtype=data kill;
+ proc datasets lib=work memtype=data kill nodetails nolist;
  run;
  quit; 
  
@@ -25,11 +24,11 @@
 
 /* Fetch the file from the web site */
 
-filename probly temp;
+filename raw_ct temp;
 proc http
  url="https://raw.githubusercontent.com/tapswi2696/Rang_ppt/master/RAW_CSV.csv"
  method="GET"
- out=probly;
+ out=raw_ct;
 run;
 
 options validvarname=any;
@@ -37,7 +36,7 @@ options validvarname=any;
 /* import to a SAS data set */
 
 proc import
-  file=probly
+  file=raw_ct
   out=work.raw_ct_db replace
   dbms=csv;
 run;
@@ -227,5 +226,7 @@ run;
 proc print data=final noobs;
   var level ct_code sdtm_variable sdtm_value raw_value ;
 run;
+
+
 
 
