@@ -27,7 +27,7 @@
 filename raw_ct temp;
 proc http
  url="https://raw.githubusercontent.com/tapswi2696/Rang_ppt/master/RAW_CSV.csv"
- method="GET"
+ method="GET" 
  out=raw_ct;
 run;
 
@@ -37,8 +37,7 @@ options validvarname=any;
 
 proc import
   file=raw_ct
-  out=work.raw_ct_db replace
-  dbms=csv;
+  out=work.raw_ct_db replace dbms=csv;delimiter=',';guessingrows=3000;
 run;
 
 proc sort data=raw_ct_db;
