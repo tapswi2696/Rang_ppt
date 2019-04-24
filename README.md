@@ -1,4 +1,4 @@
-# RAN_PPT
+# RANG_PPT
 
 
 Code_file :  This code WORKS IN ONLY SAS STUDIO not any where else such as SAS/BASE 9.4 or SAS/EG 
