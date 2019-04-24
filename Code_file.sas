@@ -6,7 +6,7 @@
  dm output 'clear'; 
  dm odsresults 'clear';
  
- proc datasets memtype=catalog;
+ proc datasets memtype=catalog kill nodetails nolist;
  delete formats;
  run;
  quit; 
@@ -19,7 +19,7 @@
  footnote1;
  
    /*****************************************************************************/
-  /**                  IMPORT AND READ GITHUB                               ****/
+  /**                  READ GITHUB                                          ****/
  /*****************************************************************************/
 
 /* Fetch the file from the web site */
