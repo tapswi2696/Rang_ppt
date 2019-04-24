@@ -47,7 +47,7 @@ run;
 /** EDIT CHECK ****/ 
 
 proc freq data=raw_ct_db  noprint;
-   table level * ct_code * sdtm_variable * raw_value /out=basic (drop=percent count);
+   table level * ct_code * sdtm_variable * raw_value /out=raw_edit_check (drop=percent count);
 run;
 
    /*****************************************************************************/
